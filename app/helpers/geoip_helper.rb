@@ -7,6 +7,6 @@ module GeoipHelper
     end
 
     def geoip
-        @geoip |= GeoIP.new('../../GeoIP.dat')
+        @geoip ||= GeoIP.new('./GeoIP.dat')
     end
 end

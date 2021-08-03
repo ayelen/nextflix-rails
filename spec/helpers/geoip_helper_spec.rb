@@ -1,19 +1,21 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the GeoipHelper. For example:
-#
-# describe GeoipHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe GeoipHelper, type: :helper do
-    context 'before publication' do  # (almost) plain English
-      it 'cannot have comments' do   #
-        expect(true).to be_truthy  # test code
+    @geoipHelper
+    context 'translates an IP address' do
+      it 'gets US country' do
+        def country = helper.identify_country("8.8.8.8")
+        expect(country).to eq("US")
+      end
+
+      it 'gets Argentina as country' do
+        def country = helper.identify_country("190.231.195.24")
+        expect(country).to eq("AR")
+      end
+
+      it 'gets Brazil as country' do
+        def country = helper.identify_country("179.93.224.3")
+        expect(country).to eq("BR")
       end
     end
 end
