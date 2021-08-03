@@ -1,4 +1,4 @@
-module GeoipHelper
+module GeoipApiHelper
 
     attr_reader :geoip
 
