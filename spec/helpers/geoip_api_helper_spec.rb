@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GeoipHelper, type: :helper do
-    @geoipHelper
+RSpec.describe GeoipApiHelper, type: :helper do
     context 'translates an IP address' do
       it 'gets US country' do
         def country = helper.identify_country("8.8.8.8")
